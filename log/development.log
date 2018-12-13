@@ -7532,3 +7532,393 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 52ms (Views: 46.3ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-13 14:40:43 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (422.5ms)
+Completed 500 Internal Server Error in 658ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdefd407458>:0x00007fdefe935c80>
+Did you mean?  user_path):
+    25:         <span class="pl-2"><%= link_to "Profile", current_user %></span>
+    26:         <span class="pl-2"><%= link_to "| Log out", logout_path, method: "delete" %></span>
+    27:         <span class="pl-2"><%= link_to "Edit", edit_user_path(current_user) %></span>
+    28:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    29:         <!--  -->
+    30: 
+    31:       <% else %>
+  
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb__324069553885564613_70297885273620'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297865331100'
+Started GET "/" for 127.0.0.1 at 2018-12-13 14:41:48 +0200
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (286.0ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdefd407458>:0x00007fdefdc80170>
+Did you mean?  user_path):
+    25:         <span class="pl-2"><%= link_to "Profile", current_user %></span>
+    26:         <span class="pl-2"><%= link_to "| Log out", logout_path, method: "delete" %></span>
+    27:         <span class="pl-2"><%= link_to "Edit", edit_user_path(current_user) %></span>
+    28:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    29:         <!--  -->
+    30: 
+    31:       <% else %>
+  
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb__324069553885564613_70297906796620'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297903264500'
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:41:53 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-12-13 14:41:53 +0200
+  ↳ app/helpers/sessions_helper.rb:14
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/users_controller.rb:27
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (11.8ms)
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (396.0ms)
+Completed 500 Internal Server Error in 591ms (ActiveRecord: 1.6ms)
+
+
+  Rendered layouts/_header.html.erb (325.2ms)
+  
+Completed 500 Internal Server Error in 623ms (ActiveRecord: 0.4ms)
+
+
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdefd407458>:0x00007fdf01cc26c0>
+Did you mean?  user_path):
+  
+    25:         <span class="pl-2"><%= link_to "Profile", current_user %></span>
+    26:         <span class="pl-2"><%= link_to "| Log out", logout_path, method: "delete" %></span>
+    27:         <span class="pl-2"><%= link_to "Edit", edit_user_path(current_user) %></span>
+    28:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    29:         <!--  -->
+    30: 
+    31:       <% else %>
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdf00e96b78>:0x00007fdf00e94d28>
+Did you mean?  user_path):
+  
+    25:         <span class="pl-2"><%= link_to "Profile", current_user %></span>
+    26:         <span class="pl-2"><%= link_to "| Log out", logout_path, method: "delete" %></span>
+    27:         <span class="pl-2"><%= link_to "Edit", edit_user_path(current_user) %></span>
+    28:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    29:         <!--  -->
+    30: 
+    31:       <% else %>
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb__324069553885564613_70297903292580'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297892269420'
+  
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb__324069553885564613_70297903292580'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297892269420'
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:42:55 +0200
+Processing by UsersController#edit as HTML
+Started GET "/" for 127.0.0.1 at 2018-12-13 14:42:55 +0200
+  Parameters: {"id"=>"2"}
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/users_controller.rb:49
+  ↳ app/views/posts/index.html.erb:2
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (253.6ms)
+Completed 500 Internal Server Error in 409ms (ActiveRecord: 0.2ms)
+
+
+  Rendered layouts/_header.html.erb (218.1ms)
+  
+Completed 500 Internal Server Error in 556ms (ActiveRecord: 0.3ms)
+
+
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdefd407458>:0x00007fdefeada798>
+Did you mean?  user_path):
+  
+    10:         <span class="p-2 text-dark"><%= link_to "Home Page", home_path %></span>
+    11:         <span class="p-2 text-dark"><%= link_to "Добавление статьи", new_post_path %></span>
+    12:         <span class="p-2 text-dark"><%= link_to "О нас", about_path %></span>
+    13:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    14: 
+    15:     </ul>
+    16:     <form class="form-inline my-2 my-lg-0">
+ActionView::Template::Error (undefined local variable or method `users_path' for #<#<Class:0x00007fdf00e96b78>:0x00007fdf01e87ed8>
+Did you mean?  user_path):
+  
+    10:         <span class="p-2 text-dark"><%= link_to "Home Page", home_path %></span>
+    11:         <span class="p-2 text-dark"><%= link_to "Добавление статьи", new_post_path %></span>
+    12:         <span class="p-2 text-dark"><%= link_to "О нас", about_path %></span>
+    13:         <span class="pl-2"><%= link_to "Users", users_path %></span>
+    14: 
+    15:     </ul>
+    16:     <form class="form-inline my-2 my-lg-0">
+app/views/layouts/_header.html.erb:13:in `_app_views_layouts__header_html_erb__324069553885564613_70297892675240'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297866112480'
+  
+app/views/layouts/_header.html.erb:13:in `_app_views_layouts__header_html_erb__324069553885564613_70297892675240'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3903278347902822109_70297866112480'
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:43:13 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+Started GET "/" for 127.0.0.1 at 2018-12-13 14:43:13 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 77ms (Views: 61.7ms | ActiveRecord: 1.0ms)
+
+
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (11.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (44.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 132ms (Views: 119.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:43:15 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 40ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-13 14:43:18 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  Rendered users/index.html.erb within layouts/application (232.4ms)
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x00007fdf032f6e78>:0x00007fdf0328bbc8>
+Did you mean?  @users):
+    1: <h1>All users</h1>
+    2: 
+    3: 
+    4:       <%= link_to user.name, user %>
+    5:   
+  
+app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___2170270242610200543_70297903874980'
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:43:37 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-13 14:43:39 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  Rendered users/index.html.erb within layouts/application (225.9ms)
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x00007fdf032f6e78>:0x00007fdf00c56908>
+Did you mean?  @users):
+    1: <h1>All users</h1>
+    2: 
+    3: 
+    4:       <%= link_to user.name, user %>
+    5:   
+  
+app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___2170270242610200543_70297883698040'
+Started GET "/users" for 127.0.0.1 at 2018-12-13 14:43:44 +0200
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:43:44 +0200
+Processing by UsersController#index as HTML
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"id"=>"2"}
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  ↳ app/controllers/users_controller.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+  Rendered users/index.html.erb within layouts/application (343.6ms)
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x00007fdf032f6e78>:0x00007fdf019eab50>
+Did you mean?  @users):
+    1: <h1>All users</h1>
+    2: 
+    3: 
+    4:       <%= link_to user.name, user %>
+    5:   
+  Rendered layouts/_header.html.erb (1.7ms)
+  
+  Rendered layouts/_footer.html.erb (0.5ms)
+app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___2170270242610200543_70297890816660'
+Completed 200 OK in 371ms (Views: 281.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-13 14:44:08 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (113.1ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `gravatar_for' for #<#<Class:0x00007fdf032f6e78>:0x00007fdefeb118b0>):
+    3: <ul class="users">
+    4:   <% @users.each do |user| %>
+    5:     <li>
+    6:       <%= gravatar_for user, size: 50 %>
+    7:       <%= link_to user.name, user %>
+    8:     </li>
+    9:   <% end %>
+  
+app/views/users/index.html.erb:6:in `block in _app_views_users_index_html_erb___2170270242610200543_70297866244520'
+app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___2170270242610200543_70297866244520'
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-12-13 14:44:19 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+Started GET "/users" for 127.0.0.1 at 2018-12-13 14:44:19 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by UsersController#index as HTML
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (5.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 98.7ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 109ms (Views: 91.8ms | ActiveRecord: 0.4ms)
+
+
