@@ -9,7 +9,8 @@ get 'login' => 'sessions#new'
 post 'login' => 'sessions#create'
 delete 'logout' => 'sessions#destroy'
 get 'edit' => 'users#edit'
-resources :users, only: [:show, :edit]
+patch 'edit' => 'users#update'
+resources :users, only: [:show, :edit, :update]
 resources :posts do
   resources :comments
 end
