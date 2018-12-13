@@ -1,0 +1,35 @@
+<h1>Редактирование профиля</h1>
+<%= form_for :user, url: user_path(@user), method:  :patch do |f| %>
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |msg| %>
+<div class="alert alert-danger"><%= msg %></div>
+<% end %>
+<% end %>
+  <p>
+Name<br>
+<%= f.text_field(:name, {:class => 'form-control'}) %>
+
+  </p>
+  <p>
+ email<br>
+<%= f.text_field(:email, {:class => 'form-control'}) %>
+
+  </p>
+
+  <p>
+ password<br>
+<%= f.password_field(:password, {:class => 'form-control'}) %>
+
+  </p>
+
+  <p>
+ password confirm<br>
+<%= f.password_field(:password_confirmation, {:class => 'form-control'}) %>
+
+  </p>
+
+
+<p>
+  <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+  <% end %>

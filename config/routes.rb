@@ -8,7 +8,8 @@ post 'signup' => 'users#create'
 get 'login' => 'sessions#new'
 post 'login' => 'sessions#create'
 delete 'logout' => 'sessions#destroy'
-resources :users, only: [:show]
+get 'edit' => 'users#edit'
+resources :users, only: [:show, :edit]
 resources :posts do
   resources :comments
 end
