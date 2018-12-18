@@ -7922,3 +7922,1375 @@ Completed 200 OK in 105ms (Views: 98.7ms | ActiveRecord: 0.5ms)
 Completed 200 OK in 109ms (Views: 91.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-18 10:16:21 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (16.9ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 385ms (Views: 357.9ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreatePosts (20181207213239)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181207213239_create_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181207213239"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreateComments (20181207224850)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  ↳ db/migrate/20181207224850_create_comments.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  ↳ db/migrate/20181207224850_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181207224850"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreateUsers (20181210211048)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181210211048_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181210211048"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddPasswordDigestToUsers (20181210212644)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20181210212644_add_password_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181210212644"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddRememberDigestToUsers (20181212122913)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  ↳ db/migrate/20181212122913_add_remember_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181212122913"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-18 08:25:45.278099"], ["updated_at", "2018-12-18 08:25:45.278099"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "example@railstutorial.org"], ["created_at", "2018-12-18 08:25:52.346475"], ["updated_at", "2018-12-18 08:25:52.346475"], ["password_digest", "$2a$10$BhPoNj2AygNgLxKfGeRem.DIVWaYrLTPoJdp9xv5VGkWXkPwMjU/y"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doyle Schneider"], ["email", "example-1@railstutorial.org"], ["created_at", "2018-12-18 08:25:52.904230"], ["updated_at", "2018-12-18 08:25:52.904230"], ["password_digest", "$2a$10$AhrMt01PGoHWOnoyr1kA6O8xz/0CoB.E9LVXQHuG.ODD7vYQahGpS"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lorna Ernser PhD"], ["email", "example-2@railstutorial.org"], ["created_at", "2018-12-18 08:25:52.985454"], ["updated_at", "2018-12-18 08:25:52.985454"], ["password_digest", "$2a$10$Lnz3UZTSAh/GQt1Kr5ywY.0rtRiLcJPFVG2oC77DrUD2lt6IjzZZW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sigurd Parker"], ["email", "example-3@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.065950"], ["updated_at", "2018-12-18 08:25:53.065950"], ["password_digest", "$2a$10$5zvAxk5oEZ0yERwsndxXouakvMJoKzf5wuP3TBpAWwka/XCgz2rY."]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ethan Hayes"], ["email", "example-4@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.154603"], ["updated_at", "2018-12-18 08:25:53.154603"], ["password_digest", "$2a$10$Ud.zUBWt47Q.lxQkhIxMne4Sq8sSQhGsgxBac35BZzJg5hZZscVuG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Agustina Rohan"], ["email", "example-5@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.236622"], ["updated_at", "2018-12-18 08:25:53.236622"], ["password_digest", "$2a$10$ItKyk9UWWrXYYSftrEwpeOvrKpF6LusuPp13Y5vIv8bqYI3asOQ7S"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miss Dixie Schultz"], ["email", "example-6@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.315827"], ["updated_at", "2018-12-18 08:25:53.315827"], ["password_digest", "$2a$10$yROfKQAlYSYPhc9Kb9mmOOM42/Mm8BUPp/DpxzmHGbptcb/ygjqwq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Herta Ziemann"], ["email", "example-7@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.404550"], ["updated_at", "2018-12-18 08:25:53.404550"], ["password_digest", "$2a$10$ze/Bkg4MKTn1BXTaefuOF.lQNqZ4Mcw37OXzKmUlYsx0odf/ZLNCi"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Anya Barton"], ["email", "example-8@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.488618"], ["updated_at", "2018-12-18 08:25:53.488618"], ["password_digest", "$2a$10$dlC68AFSP6PjhNPREvY02epmwwZFwb8BF9jujFG/jIDpfKy90TLF6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adella Conroy"], ["email", "example-9@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.577033"], ["updated_at", "2018-12-18 08:25:53.577033"], ["password_digest", "$2a$10$4gEb3loYysDnnnjaNnCBUuiCaoycO1rsTKYI8/jRt57VpRCJMBI5y"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Anita Yost"], ["email", "example-10@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.659649"], ["updated_at", "2018-12-18 08:25:53.659649"], ["password_digest", "$2a$10$FcZRzpPGOMbK9Khxb12YQu9u085mPdYHuV6XJgj47mHPM3L3OI7fa"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jonathan Koch"], ["email", "example-11@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.745698"], ["updated_at", "2018-12-18 08:25:53.745698"], ["password_digest", "$2a$10$ja9cYIThY74y.HdxxqHvgecvHSSsWhaZOSIzXdIDD7LOvRE8N8Sk2"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hertha Doyle"], ["email", "example-12@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.827896"], ["updated_at", "2018-12-18 08:25:53.827896"], ["password_digest", "$2a$10$izqXGWJ/AIT2tWoCujzXK.T161O3KtkRjazkyvDrjYOiHgNjQoUAu"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dr. Aracely Emmerich"], ["email", "example-13@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.916607"], ["updated_at", "2018-12-18 08:25:53.916607"], ["password_digest", "$2a$10$oYx7ouNZpjZJumeE9jv3BOc4cjMbgMrYsfMoGRE5IWnSOhLjka6RG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Aditya Lang"], ["email", "example-14@railstutorial.org"], ["created_at", "2018-12-18 08:25:53.997507"], ["updated_at", "2018-12-18 08:25:53.997507"], ["password_digest", "$2a$10$EyvjWWadDwfbWx7BchBHyuSPWCEqRnOOSyLDtRgBGHbM/cjid4emy"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Herminio Morissette"], ["email", "example-15@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.081096"], ["updated_at", "2018-12-18 08:25:54.081096"], ["password_digest", "$2a$10$7wHsB5OJZzoFBI4F0VK/uOHSetsWz.qxlj.VI8D3chzP379f/Zw1a"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lula Swift"], ["email", "example-16@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.171506"], ["updated_at", "2018-12-18 08:25:54.171506"], ["password_digest", "$2a$10$Pl4VeV5WGKZ3o6DkQaWcXOzmWX20lrjqkTeqWgN0k1oaKnNc2S0fu"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Daphnee Barton"], ["email", "example-17@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.252238"], ["updated_at", "2018-12-18 08:25:54.252238"], ["password_digest", "$2a$10$XVwPvd1I1LDrIrkY2nV0f.qejeTLIQXkUtnCgOuFy7Woax63Ly1PG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pierce Lesch"], ["email", "example-18@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.334840"], ["updated_at", "2018-12-18 08:25:54.334840"], ["password_digest", "$2a$10$SLLcRLtW4F319agZNXsuQuu.8FAFKbFDY1Se6r4hMe9DqN2Mr/1PO"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Marisol Stanton MD"], ["email", "example-19@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.415269"], ["updated_at", "2018-12-18 08:25:54.415269"], ["password_digest", "$2a$10$ZZuwRJ4bTHClHEzWBUcv7Op0CtA3U3XwBtQ3XWtnQPcZKHqpnXV76"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kariane Denesik"], ["email", "example-20@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.516084"], ["updated_at", "2018-12-18 08:25:54.516084"], ["password_digest", "$2a$10$VMWww1g7Y85IMZWA9OKyVOZ/nT2NkWM38dxqTIodskcCoNxGMwJmC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jermain Schowalter"], ["email", "example-21@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.598775"], ["updated_at", "2018-12-18 08:25:54.598775"], ["password_digest", "$2a$10$RtBRCsGjEeRCC7osOMlUS.1bV0cb38/vaGJVy27enlbTDKoaYu0B."]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miss Lukas Lang"], ["email", "example-22@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.682455"], ["updated_at", "2018-12-18 08:25:54.682455"], ["password_digest", "$2a$10$/Azebu4zoPBQqfXaBatBfO.4BXSC5/eI18jxLdXzVCjGkzAgZMBTK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lew Wolf"], ["email", "example-23@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.767028"], ["updated_at", "2018-12-18 08:25:54.767028"], ["password_digest", "$2a$10$/iR/B0iLIzhRMrLs8PqNyutvectiscRJu../pONr.GukfbIex4Zpu"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr. Reed Abshire"], ["email", "example-24@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.850131"], ["updated_at", "2018-12-18 08:25:54.850131"], ["password_digest", "$2a$10$bmINQfFDL3bjOJiw8M.SEeCXKd1fEujEXU6wex0HvksoSSMEdhIuS"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "D'angelo Klein"], ["email", "example-25@railstutorial.org"], ["created_at", "2018-12-18 08:25:54.930592"], ["updated_at", "2018-12-18 08:25:54.930592"], ["password_digest", "$2a$10$3/5muvhi1Gb.jaCpm6jN5.M0Rwq7a7s2V.gM5Z5vcgGEN1ySGIVuO"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mittie Nicolas"], ["email", "example-26@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.013108"], ["updated_at", "2018-12-18 08:25:55.013108"], ["password_digest", "$2a$10$jmw6Lycs4xk167tDlWU1duk9akTHeAkawGhmhjb6Pe.sVb9h4Nmwm"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Alvis Kub"], ["email", "example-27@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.097787"], ["updated_at", "2018-12-18 08:25:55.097787"], ["password_digest", "$2a$10$itqjHbasTq/i31aN9tPVHubAc/t1y/uubG.7zbxCp.KtAyd6HLZq6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lew Wyman"], ["email", "example-28@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.186591"], ["updated_at", "2018-12-18 08:25:55.186591"], ["password_digest", "$2a$10$ZSnG1Y0WhEcaoRNE5sJyFOq7dKQ0M9PYaap7Xbn2zVu8GVy1oBP0O"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dane King"], ["email", "example-29@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.268313"], ["updated_at", "2018-12-18 08:25:55.268313"], ["password_digest", "$2a$10$dkZdOQ1UDdZInRgNl97YGezwUwH3zqcmtN8.hltEPP5ZFoPS9JAd2"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jermain Konopelski DDS"], ["email", "example-30@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.350721"], ["updated_at", "2018-12-18 08:25:55.350721"], ["password_digest", "$2a$10$0/ZX46LJbuTX3JXDphHbju5SzL8ULVYe4jg0WizKIztcIFFwnMbKq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pat Huel DVM"], ["email", "example-31@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.428623"], ["updated_at", "2018-12-18 08:25:55.428623"], ["password_digest", "$2a$10$7oGXtle1c.b0Qwq3RBA02evXg.d5PV/VZjpvL03kNx6Roqe0IvOae"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jolie Hermiston"], ["email", "example-32@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.511884"], ["updated_at", "2018-12-18 08:25:55.511884"], ["password_digest", "$2a$10$OBYmYqq2YYDfnIYqsp4vA.dVDHtKjgx2Y0fGRNQqEvEWcY7IwaXMu"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cristina Smitham"], ["email", "example-33@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.596039"], ["updated_at", "2018-12-18 08:25:55.596039"], ["password_digest", "$2a$10$K0SZdJg1oZhj0VgZJT0NOuLedNTpmtbIthXAFEcTCnslPkiFpjXRW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Camylle Waters"], ["email", "example-34@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.678643"], ["updated_at", "2018-12-18 08:25:55.678643"], ["password_digest", "$2a$10$C9LTxCmiDEjRIGIfTZ72OuJr72NuNcAqzeMSL5ZkhIbCgscPuBFxe"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wiley Runte"], ["email", "example-35@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.761616"], ["updated_at", "2018-12-18 08:25:55.761616"], ["password_digest", "$2a$10$RmaXj7VNpaoSlkwYxc62T.QhunYV1IkoEMFOaOs/ElEPdg2gkXcFS"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Roma Powlowski"], ["email", "example-36@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.844856"], ["updated_at", "2018-12-18 08:25:55.844856"], ["password_digest", "$2a$10$d4azbycfgC1cS/LRiHrPH.49cFo5.wBI7s0ZMfZBCaWkdqa1q9B7O"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Elroy Stehr"], ["email", "example-37@railstutorial.org"], ["created_at", "2018-12-18 08:25:55.935152"], ["updated_at", "2018-12-18 08:25:55.935152"], ["password_digest", "$2a$10$1SVtL.8R.iZpWoHTV6NgMu7nJrPssI6PA0IVgbpET0gOjcYjMFZ.W"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rosario Lemke"], ["email", "example-38@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.017279"], ["updated_at", "2018-12-18 08:25:56.017279"], ["password_digest", "$2a$10$kBJBYhN9/GvrEbeWVJYJmOBrpfefUG8njcCsVZzCGdiYG7r/kaz9C"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bianka McKenzie"], ["email", "example-39@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.101918"], ["updated_at", "2018-12-18 08:25:56.101918"], ["password_digest", "$2a$10$IlfK8yeuArRfp3RhhFo0.eSWjMp.1TzpSyZRMdY5MuW9.NcDyHfLK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Antonetta Murray"], ["email", "example-40@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.186778"], ["updated_at", "2018-12-18 08:25:56.186778"], ["password_digest", "$2a$10$HHFegMCaocQwfaoukr831.u4zv/YY5xTAzA9gyYr8lQa7xIiE9mHK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kavon Lindgren"], ["email", "example-41@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.273603"], ["updated_at", "2018-12-18 08:25:56.273603"], ["password_digest", "$2a$10$TViQP.iW.Q5cV2ZNv93TU.1q/wtCLwb5HpY22jhKc.y.mowJigoQO"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Arvel Hintz"], ["email", "example-42@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.361809"], ["updated_at", "2018-12-18 08:25:56.361809"], ["password_digest", "$2a$10$Hbt70b8IXo0EGpSaahZZn.v1nFdsQXXDfo7bBbU2S19cNznxVNQIC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jackie Schneider I"], ["email", "example-43@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.439735"], ["updated_at", "2018-12-18 08:25:56.439735"], ["password_digest", "$2a$10$b7v98w5QSX.N6z7fLKRk1OYAkpNzS6fDvQ8RjsvUmPq5fFNHzL1Hq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miss Pamela Fadel"], ["email", "example-44@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.524413"], ["updated_at", "2018-12-18 08:25:56.524413"], ["password_digest", "$2a$10$Eljiw/5eyl.JwO6FouFGouag9fZY4YlgJ9WjxCyWV33uMgQ6E08qe"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Leopoldo Borer Sr."], ["email", "example-45@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.613922"], ["updated_at", "2018-12-18 08:25:56.613922"], ["password_digest", "$2a$10$.Ta3RcdyP9xWZ8CajXecHOFRnMMaWnMaOdP9YQ.1Hloc8P1VjbSt6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rudolph Dickens"], ["email", "example-46@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.696292"], ["updated_at", "2018-12-18 08:25:56.696292"], ["password_digest", "$2a$10$bw1GfpEw3gh4AOUSlh9MJ.Bfwtryu3urv47.Fa0U7RkM98q3.f.xW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Amara Bins"], ["email", "example-47@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.780183"], ["updated_at", "2018-12-18 08:25:56.780183"], ["password_digest", "$2a$10$Np3v66fwn2V0G50glwmnjOn/5/R26/WxJH6tjmBl83sB0WXn2.1vC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Percival O'Reilly"], ["email", "example-48@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.860745"], ["updated_at", "2018-12-18 08:25:56.860745"], ["password_digest", "$2a$10$7BU6ufdHusJS7c.3D5w1RehV3drPp/Ogj4hQgYt2pT4gCaaAb1RLW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carson Padberg"], ["email", "example-49@railstutorial.org"], ["created_at", "2018-12-18 08:25:56.939523"], ["updated_at", "2018-12-18 08:25:56.939523"], ["password_digest", "$2a$10$m6BWt1rNDDUUAQEeBtIxUOtOxWTxAvIVXk8mX5Ut79Mb3Mo3PqusO"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jarvis Leannon"], ["email", "example-50@railstutorial.org"], ["created_at", "2018-12-18 08:25:57.037810"], ["updated_at", "2018-12-18 08:25:57.037810"], ["password_digest", "$2a$10$G60PhaPuwMNy7F.vpLtcEuKb9G45M50PMEWDzZv3KdG402g13SQdG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+Started GET "/" for 127.0.0.1 at 2018-12-18 10:26:18 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 209ms (Views: 198.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-18 10:26:20 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (82.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 169ms (Views: 166.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-12-18 10:26:22 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 98ms (Views: 81.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2018-12-18 10:26:34 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cl/u+eTllGhKtU2LXl0PqhGEERJFG/aB93jftbhv7texltO/04+Fd6l9bxG5azYJsz2HrK73nRQDjEM331q9kA==", "user"=>{"name"=>"Romanko", "email"=>"Romanko@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Save User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Romanko"], ["email", "Romanko@gmail.com"], ["created_at", "2018-12-18 08:26:34.706633"], ["updated_at", "2018-12-18 08:26:34.706633"], ["password_digest", "$2a$10$OPkzG54V018/M9nCl3/hWuvIyyGQ/6NPNddwH/u3C3PKsN/idjloK"]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+Redirected to http://localhost:3000/users/52
+Completed 302 Found in 83ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:26:34 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 66ms (Views: 57.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-18 10:26:41 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-12-18 10:26:52 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ull7zySG5MNt40Y8cAixba74RdbrGFzLD6oDc8+G59VwbX0TG8VjON8Mznv4/1D92TlTE6giP5lRq/N3rR4xCw==", "session"=>{"email"=>"Romanko@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "Romanko@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$10$IOoWLqVG/A9f0bUCBD8ZsOXTAx.aJ1S.RaimauoyjCC9zQf.nZoVG"], ["updated_at", "2018-12-18 08:26:52.682043"], ["id", 52]]
+  ↳ app/models/user.rb:20
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/users/52
+Completed 302 Found in 148ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:26:52 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:26:55 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:31:24 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [52 times] (3.7ms)
+  Rendered users/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddAdminToUsers (20181218083148)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 0[0m
+  ↳ db/migrate/20181218083148_add_admin_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181218083148"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:35:22 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 290ms (Views: 269.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:35:25 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [52 times] (4.2ms)
+  Rendered users/index.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 51ms (Views: 46.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-18 10:35:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 57ms (Views: 51.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:35:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (2.6ms)
+Completed 200 OK in 75ms (Views: 71.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-12-18 10:36:33 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:36:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 277ms (Views: 259.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:36:39 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 98ms (Views: 93.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/52" for 127.0.0.1 at 2018-12-18 10:36:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 55.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-12-18 10:36:42 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lSJlBVgqAjqQTEzf3bVRMjoWn5zrTHpijZYmQrxkxx4mCz+x4X6FCNNucHZDaVPwLcw/3lYGDebhrfOm9b4YSA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", nil], ["updated_at", "2018-12-18 08:36:42.097778"], ["id", 52]]
+  ↳ app/models/user.rb:29
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-18 10:36:42 +0200
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:2
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 86ms (Views: 75.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-18 10:36:44 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 62ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-12-18 10:37:00 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"72z9wiaaVbog70ZsMU5UDu7IyEBrsnWiTyvEFilJ/k4lWPseGdnSQZIAziu5ubWemQnehSiIFvARKjQSS9EokA==", "session"=>{"email"=>"example@railstutorial.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@railstutorial.org"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 74ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-18 10:37:00 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 36.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-12-18 10:37:02 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 33.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2018-12-18 10:37:23 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1ZY/rJhalTr+yKIGTpcg+ZdU7TZiHSgEnMhn62wCMmD+EnFE9t4y+bDikSJZEM88UnfPVRRudpbS+G30iELcg==", "user"=>{"name"=>"Admin", "email"=>"Admin@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save User", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:33
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Admin"], ["email", "Admin@gmail.com"], ["password_digest", "$2a$10$d7RsxJi3hOlHkuw5B2WOY.blUSPtYjXh8wlf3sul7j2IKphzyP8ze"], ["updated_at", "2018-12-18 08:37:23.136026"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:33
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:33
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 78ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-18 10:37:23 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 55ms (Views: 51.8ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-12-18 08:38:04.267412"], ["admin", 1], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreatePosts (20181207213239)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181207213239_create_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181207213239"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreateComments (20181207224850)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  ↳ db/migrate/20181207224850_create_comments.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  ↳ db/migrate/20181207224850_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181207224850"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to CreateUsers (20181210211048)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181210211048_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181210211048"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddPasswordDigestToUsers (20181210212644)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20181210212644_add_password_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181210212644"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddRememberDigestToUsers (20181212122913)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  ↳ db/migrate/20181212122913_add_remember_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181212122913"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+Migrating to AddAdminToUsers (20181218083148)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 0[0m
+  ↳ db/migrate/20181218083148_add_admin_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181218083148"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-18 08:38:56.462686"], ["updated_at", "2018-12-18 08:38:56.462686"]]
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "admin") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "example@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.161411"], ["updated_at", "2018-12-18 08:39:04.161411"], ["password_digest", "$2a$10$jlWOQfhAF1uGUkWu8De4JeNlwB8VJ8L1r6WJCWLCJTP6PjmCK1yGG"], ["admin", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Joelle Wisoky V"], ["email", "example-1@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.287789"], ["updated_at", "2018-12-18 08:39:04.287789"], ["password_digest", "$2a$10$PRJNV1tKRt.lwXmjk0hXRuwqmFUgtMnta6.pfbqoXPV7SKJ6x3jv."]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dion Smitham"], ["email", "example-2@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.372384"], ["updated_at", "2018-12-18 08:39:04.372384"], ["password_digest", "$2a$10$S11ViuLKhqBTBVVPQBhtKO6Y9QXtPNV88Z6HBd9YHiChV.VG0Gzum"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr. Rylan Kessler"], ["email", "example-3@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.456520"], ["updated_at", "2018-12-18 08:39:04.456520"], ["password_digest", "$2a$10$0KVOBLaAMAazMWzH0fKRa.yrya/7k9ssiG1WmS3l2afzS73LpaTjW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr. Lindsey Lehner"], ["email", "example-4@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.540612"], ["updated_at", "2018-12-18 08:39:04.540612"], ["password_digest", "$2a$10$VeZeGI7kLRvtEiFSFEwBku7MUqV9aJhjRaHw8jUq0wY4413ZRgoYW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ms. Macie Ankunding"], ["email", "example-5@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.625863"], ["updated_at", "2018-12-18 08:39:04.625863"], ["password_digest", "$2a$10$nCd2kxvlOYZEDjXRSF/hz.TFbC95bvuOIqzUaaiKYmaz/faW4iLXK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (16.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jazmyne Maggio IV"], ["email", "example-6@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.706401"], ["updated_at", "2018-12-18 08:39:04.706401"], ["password_digest", "$2a$10$fz3ZdjHx3/QYoGJQINnLWOvfc55aEnA856iCpw2itFlmOnfP06md6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ryder Durgan"], ["email", "example-7@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.822882"], ["updated_at", "2018-12-18 08:39:04.822882"], ["password_digest", "$2a$10$LeoTuymkoJMR04taRJSP9e/TMXF4lrWJWXiR96XiMB8b.bwN1iqNy"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Tillman MacGyver II"], ["email", "example-8@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.901932"], ["updated_at", "2018-12-18 08:39:04.901932"], ["password_digest", "$2a$10$rwxiHVgK9Kn1yhb3TopvPeHJuYw2CmSd2T1iNW0LaarLui00j4bUW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Treva Larkin II"], ["email", "example-9@railstutorial.org"], ["created_at", "2018-12-18 08:39:04.992200"], ["updated_at", "2018-12-18 08:39:04.992200"], ["password_digest", "$2a$10$GWc45aqHGKQyI3gU1WfLa.dj15jokKu/KzC.6ne6bLo3ilokVrRGG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Treva Muller"], ["email", "example-10@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.086645"], ["updated_at", "2018-12-18 08:39:05.086645"], ["password_digest", "$2a$10$.HQi8eAQ4H.1xIjGs5pPMOVYHSdM5OVdkjjGLfKz9218R/O.MZI1S"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Emerald Parisian"], ["email", "example-11@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.183106"], ["updated_at", "2018-12-18 08:39:05.183106"], ["password_digest", "$2a$10$ZNokPKOh6w3vOAOukwJ2YOHvowHEhxyWSQiZWM5x6YprCnj3BvM4u"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miss Jonathon McLaughlin"], ["email", "example-12@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.278770"], ["updated_at", "2018-12-18 08:39:05.278770"], ["password_digest", "$2a$10$A6yb/J0YmSGvVH.MzQ2pl.dnSVkwlQhRfDo2yXOwW5l/RsvRfuQAO"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kurt Walsh"], ["email", "example-13@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.362267"], ["updated_at", "2018-12-18 08:39:05.362267"], ["password_digest", "$2a$10$1WjfgmkkvKMBbTvjaMun/eN63UGLgKifmlnOCDXtm9axfzk3L24XW"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Xavier Corkery"], ["email", "example-14@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.450484"], ["updated_at", "2018-12-18 08:39:05.450484"], ["password_digest", "$2a$10$l.cyKzCwvvvfhBnT7aHpCedZQJZu/VPnqN7lh4KOhmyoISIv6ucFG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Calista Schiller"], ["email", "example-15@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.535157"], ["updated_at", "2018-12-18 08:39:05.535157"], ["password_digest", "$2a$10$8Is85cbvEp02wUCUexSdsu/JbVW33XxNdqvISeTkksnQ1tDXvWYXi"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carissa Breitenberg"], ["email", "example-16@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.617825"], ["updated_at", "2018-12-18 08:39:05.617825"], ["password_digest", "$2a$10$oRo/6XWxr.Xyp8uz5vHPLeIp5xmLryom1oDKzdalltApdDB/hHKcC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lydia Hahn"], ["email", "example-17@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.697608"], ["updated_at", "2018-12-18 08:39:05.697608"], ["password_digest", "$2a$10$kKfjXImE9ulBSBzQYKBjguwmLkPnbi8/Y49NhOERWF3GBbINaqYYS"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jada Powlowski"], ["email", "example-18@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.780287"], ["updated_at", "2018-12-18 08:39:05.780287"], ["password_digest", "$2a$10$PvRYDu.dj8mriGkg5C0Uke3KRx93N610Q3K.Ri2UtcV06pI6FCqUC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rupert Stiedemann"], ["email", "example-19@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.861508"], ["updated_at", "2018-12-18 08:39:05.861508"], ["password_digest", "$2a$10$Nj18LYeBTTqQxuo6OYHET.UFHyh8Jw.W4Lw/vLB22LBTgtHYzMAeq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carleton Quigley"], ["email", "example-20@railstutorial.org"], ["created_at", "2018-12-18 08:39:05.945489"], ["updated_at", "2018-12-18 08:39:05.945489"], ["password_digest", "$2a$10$tc.slGI8MLAuo05TftDsc.TS7CB8Ff5ey6abEMrobveWnaI9At0Uy"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dr. Ellie Lubowitz"], ["email", "example-21@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.028249"], ["updated_at", "2018-12-18 08:39:06.028249"], ["password_digest", "$2a$10$TpAohHhxx.QMVzxCT0kh9uV5if9FRE9sAWPPCT0yCboCTg1thfeXe"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ms. Jena Dach"], ["email", "example-22@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.106890"], ["updated_at", "2018-12-18 08:39:06.106890"], ["password_digest", "$2a$10$y1hs6Xfrj/V5pvZl6..0COtdpDMbcbDLl1UjtBUkm86LF36cN2K3."]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lera Goldner"], ["email", "example-23@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.196647"], ["updated_at", "2018-12-18 08:39:06.196647"], ["password_digest", "$2a$10$DIqnGc6yOS4chSoYncbJjuM2iPjjRXBwKrK/zkrdK8ajE5rGQbXf2"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Darryl Buckridge"], ["email", "example-24@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.285115"], ["updated_at", "2018-12-18 08:39:06.285115"], ["password_digest", "$2a$10$WUOSkUlav7kpoZOUJTEF7OGTQ0PrFoWCMV9DpT0dIBSJ/3yfyTfie"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaycee Sauer"], ["email", "example-25@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.378524"], ["updated_at", "2018-12-18 08:39:06.378524"], ["password_digest", "$2a$10$Xd0fOMredAn/v1dhpr8imOjSsy7D6X5CjkaWAcMgmKo8gWuhXkwAK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Angel Lowe"], ["email", "example-26@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.461185"], ["updated_at", "2018-12-18 08:39:06.461185"], ["password_digest", "$2a$10$Q9cvPArQ.w2lTTiE.rX3VuT2bdmQbhRyHMnlUF7O.dFSL/B2kjaVG"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Antone Rath"], ["email", "example-27@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.548057"], ["updated_at", "2018-12-18 08:39:06.548057"], ["password_digest", "$2a$10$n/gTQCr5TMGOs4evYhLLK.oEkyjB7o2/uGkyxZHTNfp38oxbK2F2S"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Waylon Tillman"], ["email", "example-28@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.629347"], ["updated_at", "2018-12-18 08:39:06.629347"], ["password_digest", "$2a$10$Dx/hrrtdXDzQFbFFgn93s..mOhSQwFetcS3ONz6DXh.V3WoEZPuQ2"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kitty Johns IV"], ["email", "example-29@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.714966"], ["updated_at", "2018-12-18 08:39:06.714966"], ["password_digest", "$2a$10$lLO08qQxgN.8RpaRMZXSfe7awsBFGDZ.j/ELdyEClZAamv53FlwVK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mauricio Leannon"], ["email", "example-30@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.800523"], ["updated_at", "2018-12-18 08:39:06.800523"], ["password_digest", "$2a$10$K09WFUkBeOcBzYQRgmT8LO2RxXfzcPj9Ilv7T1gAYBInMA/OouDqm"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lisandro Erdman"], ["email", "example-31@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.885438"], ["updated_at", "2018-12-18 08:39:06.885438"], ["password_digest", "$2a$10$TMfoGtdipPcUCqDbFdBWEOLIaBMe9bP5nUW01oQQV4PGyyNAIOyuy"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ezequiel O'Keefe"], ["email", "example-32@railstutorial.org"], ["created_at", "2018-12-18 08:39:06.977071"], ["updated_at", "2018-12-18 08:39:06.977071"], ["password_digest", "$2a$10$M1rgpi62hWWy3kL6LM3Eu.oEJ0LIWVN/DB85ZGOCs0xM4KMu5sIlC"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Marc Gleichner Jr."], ["email", "example-33@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.064305"], ["updated_at", "2018-12-18 08:39:07.064305"], ["password_digest", "$2a$10$tCqhb45xqeqUx/OZ/c33u.FnX1EL7n3dbkQfRU1vKIk.tv1.3GAiS"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Luisa Hackett Sr."], ["email", "example-34@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.147286"], ["updated_at", "2018-12-18 08:39:07.147286"], ["password_digest", "$2a$10$I6EIggk7fbDgh8A2ncdaWOL0OMfeOn2uLiATncll9SrfBGR0IxP6C"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dr. Haylie Collier"], ["email", "example-35@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.230285"], ["updated_at", "2018-12-18 08:39:07.230285"], ["password_digest", "$2a$10$X.eMieStF6Du8nDtJjpAEewgXRwfKBjESaQj.Rb4of8ZYFs8nivGi"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dorcas Harvey"], ["email", "example-36@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.307693"], ["updated_at", "2018-12-18 08:39:07.307693"], ["password_digest", "$2a$10$MEx8eRvsAn6.8wOZh6DZlOhtEHT/LSnHyceUvnzAvWnr7c.p6CU/y"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Eva Feest"], ["email", "example-37@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.390064"], ["updated_at", "2018-12-18 08:39:07.390064"], ["password_digest", "$2a$10$7UrsEcm.aDo52OvH9KO2DeReJNshx/3Bw/ASc/6tHAIi8T9xQjqaq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mrs. Stewart Sporer"], ["email", "example-38@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.471968"], ["updated_at", "2018-12-18 08:39:07.471968"], ["password_digest", "$2a$10$KaTB9Oqgu0t/5Wp7rlzLF.wLNSScCWlIBoEEaICpNScfZMJuwKsIe"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Stone Kulas"], ["email", "example-39@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.554786"], ["updated_at", "2018-12-18 08:39:07.554786"], ["password_digest", "$2a$10$ZkEPmZ3rMzogtJcSlt1U5.HTptqHwx57NOm7OC7d61mvnJmmpxSfK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Peyton Hilll"], ["email", "example-40@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.634220"], ["updated_at", "2018-12-18 08:39:07.634220"], ["password_digest", "$2a$10$JeVQfsmTMctbOhCR2jHIKO6KPbEr/eZmZeznD5l37mcStOHhAIQyK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Alanna Murphy"], ["email", "example-41@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.734514"], ["updated_at", "2018-12-18 08:39:07.734514"], ["password_digest", "$2a$10$oMzUgvNWly.6DbcvR/Ao.O/vBVtFKZ9Wn4mJYmkF6Kqdp/TiMqsr2"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mr. Reina Bailey"], ["email", "example-42@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.837351"], ["updated_at", "2018-12-18 08:39:07.837351"], ["password_digest", "$2a$10$Aanw0q42Aegoq1449dZigO9V1v.ea/IEhSD2u0RvWiKPkKBjS.lY6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cleta Green III"], ["email", "example-43@railstutorial.org"], ["created_at", "2018-12-18 08:39:07.916119"], ["updated_at", "2018-12-18 08:39:07.916119"], ["password_digest", "$2a$10$xr4ifkeuAqseceKoiLNGCuUPppOESNU9j2sVjDSenKQN2aUlICEP6"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Maverick Will"], ["email", "example-44@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.006275"], ["updated_at", "2018-12-18 08:39:08.006275"], ["password_digest", "$2a$10$IzOlMjwBmXQwi18TQFsWA.xejbVCZfe9AKAyKQYOuBctSrEoqD6pK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miss Willie Heathcote"], ["email", "example-45@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.089544"], ["updated_at", "2018-12-18 08:39:08.089544"], ["password_digest", "$2a$10$FchXMElqy5ibRG7.ueCBPeKqW3usNwcIG0tz7XDvK4IU/sqWErKPq"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Buck Ward Jr."], ["email", "example-46@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.173958"], ["updated_at", "2018-12-18 08:39:08.173958"], ["password_digest", "$2a$10$Qa47xUKHUgTIDEe0RpWtUuAh/8CX.kxzmuTrdDVMvhiIxSijJGIrm"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Halle Schmitt"], ["email", "example-47@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.267005"], ["updated_at", "2018-12-18 08:39:08.267005"], ["password_digest", "$2a$10$gydRdbl.WHix/jB7maeOjuWmo35mNcXuYpdQRzjFquN0nw1V4/hHK"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Katelin Simonis"], ["email", "example-48@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.349037"], ["updated_at", "2018-12-18 08:39:08.349037"], ["password_digest", "$2a$10$67pEdkxxOdJNHeMu5n65WeksWoz3fr19ficblc6eZDywKjrrO3lRa"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Catharine Mitchell PhD"], ["email", "example-49@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.428342"], ["updated_at", "2018-12-18 08:39:08.428342"], ["password_digest", "$2a$10$Ep31xgQn4cuHtXp.gfPkxeAb7tGHkqwuukwlCy3SMvMtZWdkogh2G"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jo Deckow"], ["email", "example-50@railstutorial.org"], ["created_at", "2018-12-18 08:39:08.517666"], ["updated_at", "2018-12-18 08:39:08.517666"], ["password_digest", "$2a$10$VlZKvOppiPP/1jA1TAjMg.5j4mF.x3cZQfSLbcmjjkbTekaYr8486"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+Started GET "/users/1" for 127.0.0.1 at 2018-12-18 10:40:43 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/romanko/.rvm/gems/ruby-2.4.2/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendered layouts/_header.html.erb (6.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 223ms (Views: 204.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-12-18 10:40:46 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (32.3ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 108ms (Views: 103.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:40:48 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [51 times] (11.6ms)
+  Rendered users/index.html.erb within layouts/application (17.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 73ms (Views: 68.0ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-12-18 10:42:39 +0200
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:42:47 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [51 times] (10.2ms)
+  Rendered users/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 61.6ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-12-18 10:44:04 +0200
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/users/2" for 127.0.0.1 at 2018-12-18 10:44:16 +0200
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"n9iIGHQwpQcJ9cS4eWVuaZgpipCNsjDE9/nCQUf7KAQs8dKszWQiNUrX+BHnuWyrj/Mq0jD4R0CbwhelDiH3Ug==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/users
+Completed 302 Found in 22ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:44:16 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [50 times] (12.6ms)
+  Rendered users/index.html.erb within layouts/application (18.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 97ms (Views: 92.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2018-12-18 10:44:19 +0200
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TSwW7R6phttdoUA5s7Ne9GOiIGmkkcdc1d697JLneLH+BUxZp/0B6R6DfJAtb1w2dHiAKxnbsNi55WgI2z2n5w==", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-18 10:44:19 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered collection of users/_user.html.erb [49 times] (15.9ms)
+  Rendered users/index.html.erb within layouts/application (19.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 62ms (Views: 57.2ms | ActiveRecord: 0.7ms)
+
+
