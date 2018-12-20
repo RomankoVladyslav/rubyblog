@@ -15,6 +15,15 @@ def edit
   @post = Post.find(params[:id])
 end
 
+def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+end
+
 def update
 @post = Post.find(params[:id])
 
@@ -33,14 +42,15 @@ def destroy
 end
 
 def create
-     #render plain: params[:post].inspect
-     @post = Post.new(post_params)
+    @post = Post.new(post_params)
+    @post.user = current_user
 
-     if(@post.save)
-redirect_to @post
-else
-  render 'new'
-end
+
+    if (@post.save)
+      redirect_to @post
+    else
+      render 'new'
+    end
 end
 
 private def post_params

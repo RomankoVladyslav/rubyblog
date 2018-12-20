@@ -1,10 +1,15 @@
 <h1><%= @post.title %></h1>
 <h3><%= @post.body %></h3>
 <hr>
+<div class="container float-right">
+  <div class="float-right">
+    <%= @post.user.name %>
+    </div>
+
 <%= link_to "Редактировать", edit_post_path(@post), :class => 'btn btn-warning' %>
 <%= link_to "Удалить пост", post_path(@post), method: :delete, data:{confirm: "Хотите удалить статью?"}, :class => 'btn btn-danger' %>
 <hr>
-
+</div>
 <h2>Все комментарии</h2>
 <% @post.comments.each do |comment| %>
 <div class="alert alert-light">
