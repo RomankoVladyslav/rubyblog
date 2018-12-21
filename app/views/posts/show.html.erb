@@ -1,16 +1,16 @@
-<h1><%= @post.title %></h1>
-<h3><%= @post.body %></h3>
+<h3 class="text-warning"><%= @post.title %></h3>
+<h5 class="text-white"><%= @post.body %></h5>
 <hr>
 <div class="container float-right">
-  <div class="float-right">
+  <div class="float-right text-white">
     <%= @post.user.name %>
     </div>
 
 <%= link_to "Редактировать", edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to "Удалить пост", post_path(@post), method: :delete, data:{confirm: "Хотите удалить статью?"}, :class => 'btn btn-danger' %>
+<%= link_to "Удалить пост", post_path(@post), method: :delete, data:{confirm: "Хотите удалить статью?"}, :class => 'btn btn-warning text-danger' %>
 <hr>
 </div>
-<h2>Все комментарии</h2>
+<h3 class="text-white">Все комментарии</h3>
 <% @post.comments.each do |comment| %>
 <div class="alert alert-light">
 <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
@@ -18,16 +18,16 @@
 <% end %>
 
 <hr>
-<h1>Коментарии</h1>
+<h5 class="text-white">Комментарии</h5>
 <%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
+  <p class="text-white">
 Пользователь<br>
-<%= f.text_field(:username, {:class => 'form-control'}) %>
+<%= f.text_field(:username, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
-  <p>
-Текст статьи<br>
-<%= f.text_area(:body, {:class => 'form-control'}) %>
+</p>
+  <p class="text-white">
+Комментарий<br>
+<%= f.text_area(:body, {:class => 'form-control bg-dark text-white'}) %>
 
   </p>
 

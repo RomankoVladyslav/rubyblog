@@ -1,35 +1,36 @@
-<h1>Редактирование профиля</h1>
+<h1 class="text-warning">Редактирование профиля</h1>
 <%= form_for :user, url: user_path(@user), method:  :patch do |f| %>
 <% if @user.errors.any? %>
 <% @user.errors.full_messages.each do |msg| %>
 <div class="alert alert-danger"><%= msg %></div>
 <% end %>
 <% end %>
-  <p>
+<br><br>
+  <h6 class="text-white">
 Name<br>
-<%= f.text_field(:name, {:class => 'form-control'}) %>
+<%= f.text_field(:name, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
-  <p>
+  </h6><br>
+  <h6 class="text-white">
  email<br>
-<%= f.text_field(:email, {:class => 'form-control'}) %>
+<%= f.text_field(:email, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
+  </h6><br>
 
-  <p>
+  <h6 class="text-white">
  password<br>
-<%= f.password_field(:password, {:class => 'form-control'}) %>
+<%= f.password_field(:password, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
+  </h6><br>
 
-  <p>
+  <h6 class="text-white">
  password confirm<br>
-<%= f.password_field(:password_confirmation, {:class => 'form-control'}) %>
+<%= f.password_field(:password_confirmation, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
+  </h6><br>
 
 
 <p>
-  <%= f.submit({:class => 'btn btn-success'}) %>
+  <%= f.submit({:class => 'btn btn-warning'}) %>
   </p>
   <% end %>

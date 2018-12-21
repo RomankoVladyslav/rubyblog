@@ -1,22 +1,22 @@
-<h1>Редактирование поста</h1>
+<h2 class="text-warning">Редактирование поста</h2>
 <%= form_for :post, url: post_path(@post), method:  :patch do |f| %>
 <% if @post.errors.any? %>
 <% @post.errors.full_messages.each do |msg| %>
 <div class="alert alert-danger"><%= msg %></div>
 <% end %>
 <% end %>
-  <p>
+  <h5 class="text-white">
 Название<br>
-<%= f.text_field(:title, {:class => 'form-control'}) %>
+<%= f.text_field(:title, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
-  <p>
+  </h5><br>
+  <h5 class="text-white">
 Текст статьи<br>
-<%= f.text_area(:body, {:class => 'form-control'}) %>
+<%= f.text_area(:body, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
+  </h5>
 
 <p>
-  <%= f.submit({:class => 'btn btn-success'}) %>
+  <%= f.submit({:class => 'btn btn-warning'}) %>
   </p>
   <% end %>

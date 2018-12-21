@@ -1,24 +1,24 @@
-<h1>Sign up</h1>
+<h1 class="text-warning">Sign up</h1>
 <%= form_for :user, url: signup_path do |f| %>
 
 
-  <p>
+  <h5 class="text-white">
 Name<br>
-<%= f.text_field(:name, {:class => 'form-control'}) %>
+<%= f.text_field(:name, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
-  <p>
+  </h5>
+  <h5 class="text-white">
 email<br>
-<%= f.text_area(:email, {:class => 'form-control'}) %>
+<%= f.text_area(:email, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
-  <p>
+  </h5>
+  <h5 class="text-white">>
 password<br>
-<%= f.text_field(:password, {:class => 'form-control'}) %>
+<%= f.text_field(:password, {:class => 'form-control bg-dark text-white'}) %>
 
-  </p>
+  </h5>
 
-<p>
-  <%= f.submit({:class => 'btn btn-success'}) %>
-  </p>
+<h5 class="text-white">
+  <%= f.submit({:class => 'btn btn-warning'}) %>
+  </h5>
   <% end %>
